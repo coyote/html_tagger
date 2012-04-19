@@ -13,7 +13,7 @@ describe "HtmlTagger" do
 
   context "HTML String" do
 
-    context "instance methods" do
+    context "proxy methods for #style" do
 
       it "linkifes self" do
         text.link('http://localhost:3000/link').should == "<a href=\"http://localhost:3000/link\">#{text}</a>"
@@ -59,9 +59,66 @@ describe "HtmlTagger" do
         text.superscript.should == "<span style=\"font-size:xx-small; vertical-align:top\">#{text}</span>"
       end
 
+    end
+
+    context "it can add multiple stylings at once." do
+
+      it "adds style elements" do
+        text.styles('bold','italics').should == "<span style=\"font-weight:bold; font-style:italic\">Text to Markup</span>"
+      end
+
+      it "can add color as well as style elements" do
+        text.styles('color:red','bold').should == "<span style=\"font-weight:bold\" color=\"red\">Text to Markup</span>"
+      end
+
+      it "can add ID, color, and style elements" do
+        text.styles('id:foo','color:green','underscore').should == "<span style=\"text-decoration:underline\" color=\"green\" id=\"foo\">Text to Markup</span>"
+      end
+
+      it "can add class, ID, and style elements" do
+        text.styles('id:bar', 'color:orange', 'bold', 'class:baz').should == "<span class=\"baz\" style=\"font-weight:bold\" color=\"orange\" id=\"bar\">Text to Markup</span>"
+      end
+
+      it "can add many classes while adding styles" do
+        text.styles('bold','class:foo','class:bar').should ==  "<span class=\"foo bar\" style=\"font-weight:bold\">Text to Markup</span>"
+      end
+
+    end
+
+    context "block tag selection" do
+
+      it "allows selection explicitly using :span for <SPAN> tag" do
+        text.styles(:span, 'bold').should match /^<span/
+      end
+
+      it "allows selection explicitly using :div for <DIV> tag" do
+        text.styles(:div, 'bold').should match /^<div/
+      end
+
+      it "users a <SPAN> tag when no block element is specified." do
+        text.styles('bold').should match /^<span/
+      end
+
+    end
+
+    context "exceptions" do
+
+
+      it "raises an exception when trying to add an unknown trait" do
+        lambda { text.styles('boo')}.should raise_error  RuntimeError
+      end
+
+      it "raises an error when trying to add more than one ID to the element." do
+        lambda { text.styles('id:foo', 'id:bar')}.should raise_error RuntimeError
+      end
+
+      it "raises an exception on an unsupported block tag type" do
+        lambda { text.styles(:foo, 'bold')}.should raise_error RuntimeError
+      end
 
 
     end
+
 
   end
 
