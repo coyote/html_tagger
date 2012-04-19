@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["craig.a.cook@gmail.com"]
   gem.description   = %q{OO simple html tagging of text, similar to JS calls}
   gem.summary       = %q{generates HTML tags similar to how it is done in JavaScript}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/coyote/html_tagger"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

@@ -2,6 +2,8 @@
 
 Several convience methods monkey patched on String to wrap in HTML formatting.
 
+Method chaining is possible, but produces a lot of embedded SPAN tags.  New methods to be added later will allow for a call for a single SPAN tag.
+
 ## Installation
 
 Add this line to your application's Gemfile:
