@@ -15,5 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = "html_tagger"
   gem.require_paths = ["lib"]
   gem.version       = HtmlTagger::VERSION
-  gem.add_development_dependency   "rspec"
+  gem.add_development_dependency "rspec-expectations", "2.9.0"
+  gem.add_development_dependency "rspec", "2.9.0"
+  gem.add_development_dependency  "rubygems-test"
 end
