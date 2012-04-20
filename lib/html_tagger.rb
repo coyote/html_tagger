@@ -38,6 +38,10 @@ class String
     styles('subscript')
   end
 
+  def tag_id(id_to_set)
+    styles('id:'+id_to_set)
+  end
+
   def superscript
     styles('superscript')
   end
@@ -50,7 +54,7 @@ class String
 
     tag_attrs = {}
 
-    supported_wrapper_tags = ['span', 'div']
+    supported_wrapper_tags = ['span', 'div', 'p']
 
     wrap_tags = { 'before' => [], 'after' => []}
 

@@ -59,6 +59,10 @@ describe "HtmlTagger" do
         text.superscript.should == "<span style=\"font-size:xx-small; vertical-align:top\">#{text}</span>"
       end
 
+      it "wraps in a span to add an ID tag" do
+        text.tag_id('foo').should == "<span id=\"foo\">Text to Markup</span>"
+      end
+
     end
 
     context "it can add multiple stylings at once." do
