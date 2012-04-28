@@ -1,8 +1,20 @@
 # HtmlTagger
 
-Several convience methods monkey patched on String to wrap in HTML formatting.
+## Installation
 
-Method chaining is possible, but produces a lot of embedded SPAN tags.
+Add this line to your application's Gemfile:
+
+    gem 'html_tagger'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install html_tagger
+
+## Usage
 
 ### Wrapper methods that will wrap a string in a span tag with the appropriate attributes:
 
@@ -38,24 +50,6 @@ Method chaining is possible, but produces a lot of embedded SPAN tags.
    * When an unknown trait is specified to #styles
 
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'html_tagger'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install html_tagger
-
-## Usage
-
- Write usage instructions here
-
 ## Contributing
 
 1. Fork it
@@ -64,4 +58,4 @@ Or install it yourself as:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-[![endorse](http://api.coderwall.com/coyote/endorsecount.png)](http://coderwall.com/coyote)
+[![endorse](http://api.coderwall.com/coyote/endorse.png)](http://coderwall.com/coyote)
