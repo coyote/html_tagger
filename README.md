@@ -26,7 +26,7 @@ Or install it yourself as:
   * color(text_color)
   * subscript
   * superscript
-  * class(class_to_set)
+  * add_class(class_to_set)
   * tag_id(id_to_set)
 
 ### These methods are proxied to the method:
